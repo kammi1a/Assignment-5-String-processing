@@ -125,17 +125,29 @@ public class StringProcessor {
         // Tests for strong password validation
         System.out.println(sp.isStrongPassword("MyP@ssw0rd!")); // true
         System.out.println(sp.isStrongPassword("kamilaspass")); // false
+        System.out.println(sp.isStrongPassword("12345!@#")); // false
+        System.out.println(sp.isStrongPassword("PASSWORD$")); // false
+        System.out.println(sp.isStrongPassword("Valid123$Password")); // true
 
         // Tests for counting digits
-        System.out.println(sp.calculateDigits("I have 2 apples and 3 oranges.")); // 2
+        System.out.println(sp.calculateDigits("I have 1 sister and 1 brother.")); // 2
         System.out.println(sp.calculateDigits("No numbers")); // 0
+        System.out.println(sp.calculateDigits("2024 is the year.")); // 4
+        System.out.println(sp.calculateDigits("Total: 45, Items: 12.")); // 4
+        System.out.println(sp.calculateDigits("Call me at 555-1234.")); // 7
 
         // Tests for counting words
         System.out.println(sp.calculateWords("Hello there! How are you?")); // 6
         System.out.println(sp.calculateWords("    ")); // 0
+        System.out.println(sp.calculateWords("This is a single sentence.")); // 5
+        System.out.println(sp.calculateWords("Word1, word2, word3!")); // 3
+        System.out.println(sp.calculateWords("One. Two? Three!")); // 3
 
         // Tests for evaluating expressions
         System.out.println(sp.calculateExpression("4 + 5 - 2")); // 7.0
         System.out.println(sp.calculateExpression("10 - 3 + 2")); // 9.0
+        System.out.println(sp.calculateExpression("5 + 10 - 3")); // 12.0
+        System.out.println(sp.calculateExpression("8 - 2 + 6")); // 12.0
+        System.out.println(sp.calculateExpression("10 + 5 + 5 - 10")); // 10.0
     }
 }
